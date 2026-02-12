@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { ArrowDown, Code2, Sparkles } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -38,18 +39,18 @@ const Hero = () => {
             I craft elegant, performant web applications with a focus on clean code and thoughtful user experiences.
           </p>
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
-            <a
-              href="#projects"
+            <Link
+              to="/projects"
               className="inline-flex items-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-md text-sm font-medium hover:shadow-[0_0_20px_hsl(150_80%_50%/0.3)] transition-all duration-300"
             >
               View Work
-            </a>
-            <a
-              href="#contact"
+            </Link>
+            <Link
+              to="/contact"
               className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors border-b border-muted-foreground/30 hover:border-foreground pb-0.5"
             >
               Get in touch
-            </a>
+            </Link>
           </div>
         </motion.div>
 
@@ -88,17 +89,6 @@ const Hero = () => {
           </div>
         </motion.div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.2, duration: 0.6 }}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2"
-      >
-        <a href="#about" className="text-muted-foreground hover:text-primary transition-colors">
-          <ArrowDown size={20} className="animate-bounce" />
-        </a>
-      </motion.div>
     </section>
   );
 };
