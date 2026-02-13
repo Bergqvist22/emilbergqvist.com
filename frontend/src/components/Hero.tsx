@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Mic } from "lucide-react";
 import "./Hero.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 // SVG Arrow Component for the hand-drawn look
 const HandDrawnArrow = ({ className }: { className?: string }) => (
@@ -25,8 +25,55 @@ interface HeroProps {
   onSendMessage?: (message: string) => void;
 }
 
+const STATIC_PREFIX = "Ask me about ";
+const PLACEHOLDER_SUFFIXES = [
+  "UX",
+  "AI",
+  "football",
+  "what I am studying",
+  "my hobbies",
+];
+
 const Hero = ({ onSendMessage }: HeroProps) => {
   const [inputValue, setInputValue] = useState("");
+  const [dynamicText, setDynamicText] = useState("");
+  const [textIndex, setTextIndex] = useState(0);
+  const [charIndex, setCharIndex] = useState(0);
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  useEffect(() => {
+    const currentSuffix = PLACEHOLDER_SUFFIXES[textIndex];
+
+    if (isPaused) {
+      const timeout = setTimeout(() => {
+        setIsPaused(false);
+        setIsDeleting(true);
+      }, 1500); // Wait 1.5s before deleting
+      return () => clearTimeout(timeout);
+    }
+
+    const timeout = setTimeout(() => {
+      if (isDeleting) {
+        setDynamicText(currentSuffix.substring(0, charIndex - 1));
+        setCharIndex((prev) => prev - 1);
+
+        if (charIndex === 0) {
+          setIsDeleting(false);
+          setTextIndex((prev) => (prev + 1) % PLACEHOLDER_SUFFIXES.length);
+        }
+      } else {
+        setDynamicText(currentSuffix.substring(0, charIndex + 1));
+        setCharIndex((prev) => prev + 1);
+
+        if (charIndex === currentSuffix.length) {
+          setIsPaused(true);
+        }
+      }
+    }, isDeleting ? 30 : 60); // Faster typing speed
+
+    return () => clearTimeout(timeout);
+  }, [charIndex, isDeleting, isPaused, textIndex]);
 
   const handleSubmit = (e?: React.FormEvent) => {
     e?.preventDefault();
@@ -61,7 +108,7 @@ const Hero = ({ onSendMessage }: HeroProps) => {
             >
               <input
                 type="text"
-                placeholder="Fråga mig om UX"
+                placeholder={`${STATIC_PREFIX}${dynamicText}|`}
                 className="hero-chat-input"
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}

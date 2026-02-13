@@ -5,10 +5,10 @@ import { Menu, X, ExternalLink } from "lucide-react";
 import "./Navbar.css";
 
 const navItems = [
-  { label: "Hem", path: "/" },
-  { label: "LinkedIn", path: "https://www.linkedin.com/in/emilbergqvist/", external: true },
-  { label: "Cases", path: "/projects" },
-  { label: "Om mig", path: "/about" },
+  { label: "Home", path: "/" },
+  { label: "LinkedIn", path: "https://www.linkedin.com/in/emil-bergqvist-6b6b61195", external: true },
+  { label: "Projects", path: "/projects" },
+  { label: "About me", path: "/about" },
   { label: "CV", path: "/cv" },
 ];
 
@@ -21,9 +21,6 @@ const Navbar = () => {
       <div className="navbar-container">
         <Link to="/" className="navbar-logo flex items-center gap-2">
           Emil Bergqvist
-          <span className="text-[10px] uppercase tracking-wider text-accent bg-accent/10 px-1.5 py-0.5 rounded border border-accent/20">
-            v1.3.0 Beta
-          </span>
         </Link>
 
         {/* Desktop */}

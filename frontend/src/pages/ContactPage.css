@@ -1,6 +1,6 @@
 /* Contact Page Styles */
 .contact-page {
-    background-color: var(--background);
+    background: radial-gradient(circle at 50% 50%, #0c4a52 0%, #041e21 100%);
     min-height: 100vh;
 }
 

@@ -84,11 +84,11 @@ const ChatInterface = ({ initialMessage, onBack }: ChatInterfaceProps) => {
             <header className="chat-header">
                 <button onClick={onBack} className="chat-back-btn" aria-label="Tillbaka">
                     <ArrowLeft size={20} />
-                    <span>Tillbaka</span>
+                    <span>Back</span>
                 </button>
                 <div className="chat-header-title">
                     <Sparkles className="chat-header-icon" size={18} />
-                    <span>Emil AI</span>
+                    <span>Emils twin!</span>
                 </div>
                 <div className="chat-header-spacer" />
             </header>
