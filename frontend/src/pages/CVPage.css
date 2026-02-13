@@ -1,0 +1,51 @@
+/* CV Page Styles */
+.cv-page {
+    background: radial-gradient(circle at 50% 50%, #0c4a52 0%, #041e21 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.cv-page-content {
+    padding-top: 5rem;
+    /* pt-20 */
+    width: 100%;
+    max-width: 900px;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cv-container {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    padding: 1rem;
+    backdrop-filter: blur(10px);
+}
+
+.cv-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: calc(var(--radius-md) - 4px);
+}
+
+.cv-title {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    color: var(--foreground);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .cv-page-content {
+        padding-top: 8rem;
+    }
+}

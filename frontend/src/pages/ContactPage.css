@@ -1,0 +1,10 @@
+/* Contact Page Styles */
+.contact-page {
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+.contact-page-content {
+    padding-top: 5rem;
+    /* pt-20 */
+}

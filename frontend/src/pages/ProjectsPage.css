@@ -1,0 +1,10 @@
+/* Projects Page Styles */
+.projects-page {
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+.projects-page-content {
+    padding-top: 5rem;
+    /* pt-20 */
+}

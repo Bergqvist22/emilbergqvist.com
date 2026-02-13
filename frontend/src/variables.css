@@ -1,0 +1,85 @@
+/* Global Variables derived from Tailwind Config */
+:root {
+    /* Colors */
+    --background: #041e21;
+    /* Deep green-blue/teal background */
+    --foreground: #f0fdfa;
+    /* Teal-50 */
+
+    --card: #083338;
+    --card-foreground: #f0fdfa;
+
+    --popover: #041e21;
+    --popover-foreground: #f0fdfa;
+
+    --primary: #0ed7b5;
+    /* Bright turquoise accent */
+    --primary-foreground: #041e21;
+
+    --secondary: #115e59;
+    /* Teal-800 */
+    --secondary-foreground: #f0fdfa;
+
+    --muted: #134e4a;
+    /* Teal-900 */
+    --muted-foreground: #99f6e4;
+    /* Teal-200 */
+
+    --accent: #ff9f1c;
+    /* Bright orange for arrows/highlights */
+    --accent-foreground: #041e21;
+
+    --destructive: hsl(0, 84.2%, 60.2%);
+    --destructive-foreground: hsl(210, 40%, 98%);
+
+    --border: #134e4a;
+    --input: #083338;
+    --ring: #0ed7b5;
+
+    /* Radius */
+    --radius: 0.5rem;
+    --radius-lg: var(--radius);
+    --radius-md: calc(var(--radius) - 2px);
+    --radius-sm: calc(var(--radius) - 4px);
+
+    /* Typography */
+    --font-heading: 'Space Grotesk', system-ui, sans-serif;
+    --font-body: 'Space Grotesk', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Effects */
+    --glow-primary: 0 0 40px rgba(14, 215, 181, 0.3);
+    --glow-accent: 0 0 40px rgba(255, 159, 28, 0.3);
+}
+
+/* Base Styles */
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-body);
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-heading);
+}
+
+::selection {
+    background: rgba(14, 215, 181, 0.5);
+    color: #ffffff;
+}
+
+/* Utilities */
+.text-gradient {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: linear-gradient(135deg, var(--foreground), var(--muted-foreground));
+}

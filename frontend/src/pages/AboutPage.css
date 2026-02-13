@@ -1,0 +1,10 @@
+/* About Page Styles */
+.about-page {
+    background-color: var(--background);
+    min-height: 100vh;
+}
+
+.about-page-content {
+    padding-top: 5rem;
+    /* pt-20 */
+}
