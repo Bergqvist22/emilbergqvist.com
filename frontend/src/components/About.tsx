@@ -2,8 +2,7 @@ import { motion } from "framer-motion";
 import "./About.css";
 
 const skills = [
-  "React", "TypeScript", "Node.js", "Tailwind CSS",
-  "PostgreSQL", "Git", "REST APIs", "GraphQL",
+  "React", "JavaScript", "LLM", "Git"
 ];
 
 const About = () => {
@@ -33,17 +32,12 @@ const About = () => {
             className="about-content-wrapper"
           >
             <p className="about-text">
-              I'm a developer passionate about creating beautiful, functional web applications.
-              With a strong foundation in modern web technologies, I focus on writing clean,
-              maintainable code that delivers exceptional user experiences.
+              Hi! My name is Emil and I am currently doing my MSc in IT and Management with a bachelor of Science in Cognitive Science.
+              I am passionate about AI and ML and like to do my own projects at my free time. When I am not doing that,
+              I am hanging out with friends, running or watching Sports!
             </p>
-            <p className="about-text-secondary">
-              When I'm not coding, you can find me exploring new technologies, contributing to
-              open-source projects, or sharing knowledge with the developer community.
-            </p>
-
             <div className="tech-container">
-              <p className="tech-title">Technologies I work with</p>
+              <p className="tech-title">Some of the most common technologies I work with.</p>
               <div className="tech-list">
                 {skills.map((skill) => (
                   <span

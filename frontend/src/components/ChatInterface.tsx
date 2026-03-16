@@ -81,78 +81,101 @@ const ChatInterface = ({ initialMessage, onBack }: ChatInterfaceProps) => {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="chat-interface"
         >
-            <header className="chat-header">
-                <button onClick={onBack} className="chat-back-btn" aria-label="Tillbaka">
-                    <ArrowLeft size={20} />
-                    <span>Back</span>
-                </button>
-                <div className="chat-header-title">
-                    <Sparkles className="chat-header-icon" size={18} />
-                    <span>Emils twin!</span>
-                </div>
-                <div className="chat-header-spacer" />
-            </header>
+            {/* Blurred chat content beneath the overlay */}
+            <div className="chat-blur-wrapper">
+                <header className="chat-header">
+                    <button onClick={onBack} className="chat-back-btn" aria-label="Tillbaka">
+                        <ArrowLeft size={20} />
+                        <span>Back</span>
+                    </button>
+                    <div className="chat-header-title">
+                        <Sparkles className="chat-header-icon" size={18} />
+                        <span>Emils twin</span>
+                    </div>
+                    <div className="chat-header-spacer" />
+                </header>
 
-            <div className="chat-messages">
-                <AnimatePresence>
-                    {messages.map((msg) => (
+                <div className="chat-messages">
+                    <AnimatePresence>
+                        {messages.map((msg) => (
+                            <motion.div
+                                key={msg.id}
+                                initial={{ opacity: 0, y: 10 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                className={`chat-message ${msg.sender === "user" ? "user-message" : "bot-message"}`}
+                            >
+                                <div className="message-avatar">
+                                    {msg.sender === "user" ? (
+                                        <User size={16} />
+                                    ) : (
+                                        <img src="/emil-4.png" alt="Emil AI" className="w-full h-full object-cover rounded-full" />
+                                    )}
+                                </div>
+                                <div className="message-content">
+                                    <p>{msg.text}</p>
+                                    <span className="message-time">
+                                        {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
+                                    </span>
+                                </div>
+                            </motion.div>
+                        ))}
+                    </AnimatePresence>
+
+                    {isTyping && (
                         <motion.div
-                            key={msg.id}
                             initial={{ opacity: 0, y: 10 }}
                             animate={{ opacity: 1, y: 0 }}
-                            className={`chat-message ${msg.sender === "user" ? "user-message" : "bot-message"}`}
+                            className="chat-message bot-message"
                         >
                             <div className="message-avatar">
-                                {msg.sender === "user" ? (
-                                    <User size={16} />
-                                ) : (
-                                    <img src="/emil-4.png" alt="Emil AI" className="w-full h-full object-cover rounded-full" />
-                                )}
+                                <img src="/emil-4.png" alt="Emil AI" className="w-full h-full object-cover rounded-full" />
                             </div>
-                            <div className="message-content">
-                                <p>{msg.text}</p>
-                                <span className="message-time">
-                                    {msg.timestamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}
-                                </span>
+                            <div className="message-content typing-indicator">
+                                <span></span>
+                                <span></span>
+                                <span></span>
                             </div>
                         </motion.div>
-                    ))}
-                </AnimatePresence>
+                    )}
+                    <div ref={messagesEndRef} />
+                </div>
 
-                {isTyping && (
-                    <motion.div
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        className="chat-message bot-message"
-                    >
-                        <div className="message-avatar">
-                            <img src="/emil-4.png" alt="Emil AI" className="w-full h-full object-cover rounded-full" />
-                        </div>
-                        <div className="message-content typing-indicator">
-                            <span></span>
-                            <span></span>
-                            <span></span>
-                        </div>
-                    </motion.div>
-                )}
-                <div ref={messagesEndRef} />
+                <footer className="chat-input-area">
+                    <form onSubmit={handleSendMessage} className="chat-input-form">
+                        <input
+                            type="text"
+                            value={inputValue}
+                            onChange={(e) => setInputValue(e.target.value)}
+                            placeholder="Skriv ett meddelande..."
+                            className="chat-input-field"
+                        />
+                        <button type="submit" className="chat-send-btn" disabled={!inputValue.trim()}>
+                            <Send size={20} />
+                        </button>
+                    </form>
+                </footer>
             </div>
 
-            <footer className="chat-input-area">
-                <form onSubmit={handleSendMessage} className="chat-input-form">
-                    <input
-                        type="text"
-                        value={inputValue}
-                        onChange={(e) => setInputValue(e.target.value)}
-                        placeholder="Skriv ett meddelande..."
-                        className="chat-input-field"
-                        autoFocus
-                    />
-                    <button type="submit" className="chat-send-btn" disabled={!inputValue.trim()}>
-                        <Send size={20} />
+            {/* Coming Soon overlay */}
+            <div className="chat-coming-soon-overlay">
+                <motion.div
+                    className="chat-coming-soon-card"
+                    initial={{ opacity: 0, y: 16 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
+                >
+                    <Sparkles className="coming-soon-icon" size={32} />
+                    <h2 className="coming-soon-title">Coming Soon</h2>
+                    <p className="coming-soon-subtitle">
+                        Emil's AI twin is currently in training.<br />
+                        Check back soon!
+                    </p>
+                    <button onClick={onBack} className="coming-soon-back-btn">
+                        <ArrowLeft size={16} />
+                        Go back
                     </button>
-                </form>
-            </footer>
+                </motion.div>
+            </div>
         </motion.div>
     );
 };

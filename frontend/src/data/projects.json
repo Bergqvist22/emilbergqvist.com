@@ -1,0 +1,69 @@
+[
+  {
+    "title": "Bachelor's Thesis",
+    "description": "Detecting anomalies in network traffic using Graph Neural Networks (GNNs) by constructing node graphs based on packet exchanges between network endpoints.",
+    "tags": [
+      "Graph Neural Networks",
+      "Network Analysis",
+      "Cybersecurity"
+    ],
+    "year": "2025"
+  },
+  {
+    "title": "Medical Records Project",
+    "description": "Processing and extracting information from medical records using Large Language Models. Implemented LoRA fine-tuning and Named Entity Recognition (NER) for structured data extraction.",
+    "tags": [
+      "LLM",
+      "LoRA",
+      "NER"
+    ],
+    "year": "2024"
+  },
+  {
+    "title": "The Public Right",
+    "description": "A web application for accessing and interacting with public information. Built using a backend API and a modern web frontend.",
+    "tags": [
+      "Flask",
+      "React",
+      "REST API"
+    ],
+    "year": "2025"
+  },
+  {
+    "title": "Baljan ML",
+    "description": "Training a machine learning model on Baljan Café purchase data to predict future inventory needs and reduce waste.",
+    "tags": [
+      "Random Forest Regressor",
+      "Data Analysis"
+    ],
+    "year": "In Progress"
+  },
+  {
+    "title": "Image Classifier",
+    "description": "Image classification using a ResNet architecture with transfer learning to improve performance with limited data.",
+    "tags": [
+      "Transfer Learning",
+      "CNN",
+      "ResNet"
+    ],
+    "year": "2023"
+  },
+  {
+    "title": "Baljan",
+    "description": "A full-stack application deployed online for managing café-related data and services.",
+    "tags": [
+      "PostgreSQL",
+      "Heroku"
+    ],
+    "year": "2026"
+  },
+  {
+    "title": "Raspberry Pi Project",
+    "description": "Setting up a local VPN and DNS server using a Raspberry Pi for enhanced privacy and network control.",
+    "tags": [
+      "Computer Networks",
+      "Docker"
+    ],
+    "year": "2025"
+  }
+]

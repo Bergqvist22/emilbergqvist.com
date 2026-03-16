@@ -235,3 +235,107 @@
     cursor: not-allowed;
     background-color: var(--muted);
 }
+
+/* ── Coming Soon Overlay ── */
+
+/* The chat UI sits inside this wrapper and gets blurred */
+.chat-blur-wrapper {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    filter: blur(8px);
+    /* prevent any text from being selectable through the blur */
+    user-select: none;
+    pointer-events: none;
+    /* slight darkening so text is even harder to read */
+    opacity: 0.45;
+}
+
+/* Full-screen overlay sitting on top of the blurred content */
+.chat-coming-soon-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    /* subtle dark vignette to help the card pop */
+    background: radial-gradient(ellipse at center, transparent 30%, rgba(4, 20, 22, 0.55) 100%);
+}
+
+/* Glassmorphism card */
+.chat-coming-soon-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 2.5rem 3rem;
+    border-radius: 1.5rem;
+    background: rgba(12, 74, 82, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    text-align: center;
+    max-width: 360px;
+    width: 90%;
+}
+
+.coming-soon-icon {
+    color: var(--primary);
+    filter: drop-shadow(0 0 10px rgba(11, 193, 163, 0.5));
+    animation: pulse-glow 2.5s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 1;
+        filter: drop-shadow(0 0 8px rgba(11, 193, 163, 0.4));
+    }
+
+    50% {
+        opacity: 0.75;
+        filter: drop-shadow(0 0 18px rgba(11, 193, 163, 0.8));
+    }
+}
+
+.coming-soon-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    color: var(--foreground);
+    letter-spacing: 0.02em;
+}
+
+.coming-soon-subtitle {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--muted-foreground);
+    line-height: 1.6;
+}
+
+.coming-soon-back-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.06);
+    color: var(--muted-foreground);
+    font-size: 0.875rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.coming-soon-back-btn:hover {
+    background: rgba(255, 255, 255, 0.12);
+    color: var(--foreground);
+    border-color: rgba(255, 255, 255, 0.28);
+}

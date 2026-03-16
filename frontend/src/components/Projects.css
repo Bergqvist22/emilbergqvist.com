@@ -237,3 +237,27 @@
     /* rounded */
     border: 1px solid var(--border);
 }
+
+/* GitHub Link */
+.projects-github-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    font-size: 0.875rem;
+    color: var(--muted-foreground);
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.projects-github-link:hover {
+    color: var(--primary);
+}
+
+.projects-github-arrow {
+    transition: transform 0.2s;
+}
+
+.projects-github-link:hover .projects-github-arrow {
+    transform: translate(2px, -2px);
+}

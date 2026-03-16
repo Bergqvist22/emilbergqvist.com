@@ -94,11 +94,10 @@ const Hero = ({ onSendMessage }: HeroProps) => {
           className="hero-content"
         >
           <h1 className="hero-title">
-            Den mest pratsamma portfolio du någonsin kommer att träffa
+            Ask me anything!
           </h1>
           <p className="hero-subtitle">
-            Det är som att ta del av mina tankar om design och ledarskap, fast utan
-            kalendargymnastiken.
+            It's like taking part of my thoughts, but through my digital twin.
           </p>
 
           <div className="hero-input-container">
