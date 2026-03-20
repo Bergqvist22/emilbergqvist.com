@@ -202,8 +202,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: -1rem;
-    bottom: 20%;
+    left: -3rem;
+    bottom: 30%;
 }
 
 @media (min-width: 1024px) {
@@ -219,6 +219,22 @@
     color: var(--accent);
     transform: rotate(-20deg);
     margin-left: 12rem;
+}
+
+@media (max-width: 767px) {
+    .hero-annotation-arrow {
+        width: 2rem;
+        height: 2rem;
+        margin-left: 8rem;
+    }
+
+    .hero-annotation-title {
+        font-size: 0.8rem;
+    }
+
+    .hero-annotation-subtitle {
+        font-size: 0.65rem;
+    }
 }
 
 .hero-annotation-text {
