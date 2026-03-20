@@ -41,6 +41,7 @@
 @media (max-width: 767px) {
     .hero-content {
         padding-top: 6rem;
+        padding-left: 1.25rem;
         gap: 2rem;
     }
 }
@@ -201,6 +202,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
+    left: -1rem;
+    bottom: 20%;
 }
 
 @media (min-width: 1024px) {
