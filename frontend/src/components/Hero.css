@@ -203,8 +203,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    right: 12rem;
-    bottom: 30%;
+    left: -1.5rem;
+    bottom: 40%;
 }
 
 @media (min-width: 1024px) {
@@ -226,7 +226,7 @@
     .hero-annotation-arrow {
         width: 2rem;
         height: 2rem;
-        margin-left: 7rem;
+        margin-left: 8rem;
     }
 
     .hero-annotation-title {
@@ -251,6 +251,12 @@
 }
 
 .hero-annotation-subtitle {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.7);
+    display: block;
+}
+
+nnotation-subtitle {
     font-size: 0.75rem;
     color: rgba(255, 255, 255, 0.7);
     display: block;
