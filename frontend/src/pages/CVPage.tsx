@@ -2,6 +2,32 @@ import { motion } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import "./CVPage.css";
 
+const cvPages = [
+    "/Emil Bergqvist - CV-4_page-0001.jpg",
+    "/Emil Bergqvist - CV-4_page-0002.jpg",
+];
+
+const contactLinks = [
+    {
+        href: "mailto:emil.bergqvist7@hotmail.com",
+        label: "Email",
+        icon: "✉️",
+        text: "emil.bergqvist7@hotmail.com",
+    },
+    {
+        href: "https://www.linkedin.com/in/emil-bergqvist-6b6b61195/",
+        label: "LinkedIn",
+        icon: "💼",
+        text: "LinkedIn",
+    },
+    {
+        href: "https://github.com/bergqvist22",
+        label: "GitHub",
+        icon: "💻",
+        text: "GitHub",
+    },
+];
+
 const CVPage = () => {
     return (
         <main className="cv-page">
@@ -13,22 +39,53 @@ const CVPage = () => {
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
                 >
-                    Mitt CV
+                    My CV
                 </motion.h1>
 
-                <motion.div
-                    className="cv-container"
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                >
-                    {/* Placeholder image until user uploads actual CV */}
-                    <img
-                        src="/lovable-uploads/27110189-9b93-41bb-b855-6679543e395e.png"
-                        alt="Mitt CV"
-                        className="cv-image"
-                    />
-                </motion.div>
+                <div className="cv-layout">
+                    <div className="cv-images-wrapper">
+                        {cvPages.map((src, index) => (
+                            <motion.div
+                                key={src}
+                                className="cv-container"
+                                initial={{ opacity: 0, y: 20 }}
+                                animate={{ opacity: 1, y: 0 }}
+                                transition={{ duration: 0.5, delay: 0.2 + index * 0.15 }}
+                            >
+                                <img
+                                    src={src}
+                                    alt={`CV page ${index + 1}`}
+                                    className="cv-image"
+                                />
+                            </motion.div>
+                        ))}
+                    </div>
+
+                    <motion.aside
+                        className="cv-sidebar"
+                        initial={{ opacity: 0, x: 20 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.5, delay: 0.3 }}
+                    >
+                        <div className="cv-sidebar-card">
+                            <h2 className="cv-sidebar-heading">Contact & Links</h2>
+                            <div className="cv-sidebar-links">
+                                {contactLinks.map((link) => (
+                                    <a
+                                        key={link.href}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="cv-sidebar-link"
+                                    >
+                                        <span className="cv-link-icon">{link.icon}</span>
+                                        <span className="cv-link-text">{link.text}</span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </motion.aside>
+                </div>
             </div>
         </main>
     );

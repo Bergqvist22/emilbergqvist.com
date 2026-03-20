@@ -1,9 +1,6 @@
 import { motion } from "framer-motion";
 import "./About.css";
 
-const skills = [
-  "React", "JavaScript", "LLM", "Git"
-];
 
 const About = () => {
   return (
@@ -32,23 +29,12 @@ const About = () => {
             className="about-content-wrapper"
           >
             <p className="about-text">
-              Hi! My name is Emil and I am currently doing my MSc in IT and Management with a bachelor of Science in Cognitive Science.
-              I am passionate about AI and ML and like to do my own projects at my free time. When I am not doing that,
-              I am hanging out with friends, running or watching Sports!
+              Hi! I'm Emil. I'm currently doing my MSc in IT and Management,
+              building on a BSc in Cognitive Science.
+              I’m passionate about AI and ML and love working on personal projects in my free time.
+              When I’m not doing that, I’m usually hanging out with friends, running, or watching sports!
             </p>
-            <div className="tech-container">
-              <p className="tech-title">Some of the most common technologies I work with.</p>
-              <div className="tech-list">
-                {skills.map((skill) => (
-                  <span
-                    key={skill}
-                    className="tech-badge"
-                  >
-                    {skill}
-                  </span>
-                ))}
-              </div>
-            </div>
+
           </motion.div>
         </div>
       </div>
