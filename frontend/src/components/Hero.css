@@ -83,6 +83,7 @@
 /* Chat Input Area */
 .hero-input-container {
     margin-top: 2rem;
+    margin-left: -0.5rem;
     position: relative;
     width: 100%;
     max-width: 32rem;
@@ -202,8 +203,8 @@
     position: absolute;
     display: flex;
     flex-direction: column;
-    left: -3rem;
-    bottom: 30%;
+    left: -1.5rem;
+    bottom: 40%;
 }
 
 @media (min-width: 1024px) {
